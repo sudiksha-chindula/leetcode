@@ -4,7 +4,7 @@ This folder contains solutions to all the leetcode questions I attempt daily. Ev
 
 ## Questions
 
-### 1. Two Sum
+## 1. Two Sum
 
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
@@ -38,7 +38,7 @@ Constraints:
 * -109 <= target <= 109
 * Only one valid answer exists.
 
-### 2. Add Two Numbers
+## 2. Add Two Numbers
 
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
@@ -69,7 +69,7 @@ Constraints:
 * 0 <= Node.val <= 9
 * It is guaranteed that the list represents a number that does not have leading zeros.
 
-### 3. Longest Substring without Repeating Characters
+## 3. Longest Substring without Repeating Characters
 
 Given a string s, find the length of the longest substring without duplicate characters.
 
@@ -98,7 +98,7 @@ Constraints:
 * 0 <= s.length <= 5 * 104
 * s consists of English letters, digits, symbols and spaces.
 
-### 4. Median of Two Sorted Arrays
+## 4. Median of Two Sorted Arrays
 
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
 
@@ -126,7 +126,7 @@ Constraints:
 * 1 <= m + n <= 2000
 * -106 <= nums1[i], nums2[i] <= 106
 
-### 5. Longest Palindromic Substring 
+## 5. Longest Palindromic Substring 
 
 Given a string s, return the longest palindromic substring in s.
 
@@ -147,7 +147,7 @@ Constraints:
 * 1 <= s.length <= 1000
 * s consist of only digits and English letters.
 
-### 6. Zigzag Conversion
+## 6. Zigzag Conversion
 
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
@@ -187,3 +187,117 @@ Constraints:
 * 1 <= s.length <= 1000
 * s consists of English letters (lower-case and upper-case), ',' and '.'.
 * 1 <= numRows <= 1000
+
+## 7. Reverse Integer
+
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+Example 1:
+
+> Input: x = 123
+> Output: 321
+
+Example 2:
+
+> Input: x = -123
+> Output: -321
+
+Example 3:
+
+> Input: x = 120
+> Output: 21
+ 
+
+Constraints:
+
+* -231 <= x <= 231 - 1
+
+## 8. String to Integer (atoi)
+
+Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer.
+
+The algorithm for myAtoi(string s) is as follows:
+
+Whitespace: Ignore any leading whitespace (" ").
+Signedness: Determine the sign by checking if the next character is '-' or '+', assuming positivity if neither present.
+Conversion: Read the integer by skipping leading zeros until a non-digit character is encountered or the end of the string is reached. If no digits were read, then the result is 0.
+Rounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then round the integer to remain in the range. Specifically, integers less than -231 should be rounded to -231, and integers greater than 231 - 1 should be rounded to 231 - 1.
+Return the integer as the final result.
+
+ 
+
+Example 1:
+
+> Input: s = "42"
+
+> Output: 42
+
+> Explanation:
+
+> The underlined characters are what is read in and the caret is the current reader position.
+> Step 1: "42" (no characters read because there is no leading whitespace)
+         ^
+> Step 2: "42" (no characters read because there is neither a '-' nor '+')
+         ^
+> Step 3: "42" ("42" is read in)
+           ^
+Example 2:
+
+> Input: s = " -042"
+
+> Output: -42
+
+Explanation:
+
+> Step 1: "   -042" (leading whitespace is read and ignored)
+            ^
+> Step 2: "   -042" ('-' is read, so the result should be negative)
+             ^
+> Step 3: "   -042" ("042" is read in, leading zeros ignored in the result)
+               ^
+Example 3:
+
+> Input: s = "1337c0d3"
+
+> Output: 1337
+
+> Explanation:
+
+> Step 1: "1337c0d3" (no characters read because there is no leading whitespace)
+         ^
+> Step 2: "1337c0d3" (no characters read because there is neither a '-' nor '+')
+         ^
+> Step 3: "1337c0d3" ("1337" is read in; reading stops because the next character is a non-digit)
+             ^
+Example 4:
+
+> Input: s = "0-1"
+
+> Output: 0
+
+> Explanation:
+
+> Step 1: "0-1" (no characters read because there is no leading whitespace)
+         ^
+> Step 2: "0-1" (no characters read because there is neither a '-' nor '+')
+         ^
+> Step 3: "0-1" ("0" is read in; reading stops because the next character is a non-digit)
+          ^
+Example 5:
+
+> Input: s = "words and 987"
+
+> Output: 0
+
+> Explanation:
+
+> Reading stops at the first non-digit character 'w'.
+
+ 
+
+Constraints:
+
+* 0 <= s.length <= 200
+* s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
