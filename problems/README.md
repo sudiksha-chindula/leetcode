@@ -1,8 +1,6 @@
 # problems
 
-This folder contains solutions to all the leetcode questions I attempt daily. Every 10-15 days, I revisit the problems solved and try to do them from memory again for practice.
-
-## Questions
+This folder contains solutions to all the leetcode questions I attempt daily. Every 10-15 days, I revisit the problems solved and try to do them from memory again for practice. Following are the questions for reference (although navigating through leetcode would probably be easier).
 
 ## 1. Two Sum
 
