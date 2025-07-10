@@ -10,8 +10,6 @@ You may assume that each input would have exactly one solution, and you may not 
 
 You can return the answer in any order.
 
- 
-
 Example 1:
 
 > Input: nums = [2,7,11,15], target = 9
@@ -240,21 +238,21 @@ Example 1:
 > Step 2: "42" (no characters read because there is neither a '-' nor '+')
          ^
 > Step 3: "42" ("42" is read in)
-           ^
+
 Example 2:
 
 > Input: s = " -042"
 
 > Output: -42
 
-Explanation:
+> Explanation:
 
 > Step 1: "   -042" (leading whitespace is read and ignored)
             ^
 > Step 2: "   -042" ('-' is read, so the result should be negative)
              ^
 > Step 3: "   -042" ("042" is read in, leading zeros ignored in the result)
-               ^
+
 Example 3:
 
 > Input: s = "1337c0d3"
@@ -282,7 +280,7 @@ Example 4:
 > Step 2: "0-1" (no characters read because there is neither a '-' nor '+')
          ^
 > Step 3: "0-1" ("0" is read in; reading stops because the next character is a non-digit)
-          ^
+
 Example 5:
 
 > Input: s = "words and 987"
