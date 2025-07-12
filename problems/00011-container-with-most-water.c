@@ -1,29 +1,39 @@
-//time limit exceeded
+//use two pointers but not brute force to pass time
 int maxArea(int* height, int heightSize) {
-    int maxheight=0;
-    int* maxhtp = NULL;
-    int* temp = height;
-    int* temp2 = height;
-    int maxwater = 0;
-    int* maxwaterp = NULL;
-    for (temp; temp<height+heightSize; temp++)  //address overflow while doing temp<temp+heightSize
+    int* left = height;
+    int* right = height+(heightSize-1); //beginning of last integer; else out of bounds
+    int maxvolume= 0;
+    while (left<right)
     {
-        for (temp2=temp; temp2<height+heightSize; temp++)
+        int width = right -left;
+        if (*right>*left)
         {
-            int volume = 0;
-            if (temp<temp2)
+            int volume = (*left)*width;
+            if (volume>maxvolume)
             {
-                volume = (temp2-temp)*(*temp);
+                maxvolume = volume;
             }
-            else if (temp2<temp)
-            {
-                volume = (temp-temp2)*(*temp2);
-            }
-            if (volume>maxwater)
-            {
-                maxwater = volume;
-            }
+            left++;
         }
+        else if (*left>*right)
+        {
+            int volume = (*right)*width;
+            if (volume>maxvolume)
+            {
+                maxvolume = volume;
+            }
+            right--;
+        }
+        else
+        {
+            int volume = (*left)*width;
+            if (volume>maxvolume)
+            {
+                maxvolume = volume;
+            }
+            right--;
+        }
+        
     }
-    return maxwater;
+    return maxvolume;
 }
