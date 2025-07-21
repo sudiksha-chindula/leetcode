@@ -21,13 +21,24 @@ char** letterCombinations(char* digits, int* returnSize) {
         mapped[c++].l3=asciival++;
     }
     int digitlength=strlen(digits);
-    for (int i=0; i<digitlength; i++)
+    int c2=0;
+    char digitind[25]={0};  //extracting mapped letters
+    for (int i=0; i<digitlength; i++)   //loop to traverse digits in given number
     {
         char digit = digits[i];
-        char* rep = malloc(digitlength*sizeof(char));
-        for (int j=0; j<digitlength; j++)
+        for (int j=0; j<c; j++) //loop to check with maps
         {
-            result[j][i]=mapped[]
+            if (mapped[j].d==digit)
+            {
+                digitind[c2++]=mapped[j].l1;
+                digitind[c2++]=mapped[j].l2;
+                digitind[c2++]=mapped[j].l3;
+            }
         }
+    }
+    for (int i=0; i<25; i++)
+    {
+        char rep = malloc(5*sizeof(char));
+        rep
     }
 }
