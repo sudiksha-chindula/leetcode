@@ -1,44 +1,49 @@
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
- struct mapping
- {
-    char d;
-    char l1;
-    char l2;
-    char l3;
- };
+//need to revisit
+struct Map {
+    char digit;
+    char *letters;
+};
+
 char** letterCombinations(char* digits, int* returnSize) {
-    char** result = malloc(100*sizeof(char*));
-    struct mapping mapped = malloc(10*sizeof(struct mapping));
-    int c=0;
-    int asciival=97;
-    for (int i=2; i<10; i++)
-    {
-        mapped[c].d=char(i);
-        mapped[c].l1=asciival++;
-        mapped[c].l2=asciival++;
-        mapped[c++].l3=asciival++;
-    }
-    int digitlength=strlen(digits);
-    int c2=0;
-    char digitind[25]={0};  //extracting mapped letters
-    for (int i=0; i<digitlength; i++)   //loop to traverse digits in given number
-    {
-        char digit = digits[i];
-        for (int j=0; j<c; j++) //loop to check with maps
-        {
-            if (mapped[j].d==digit)
-            {
-                digitind[c2++]=mapped[j].l1;
-                digitind[c2++]=mapped[j].l2;
-                digitind[c2++]=mapped[j].l3;
+    struct Map phoneMap[] = {
+        {'2', "abc"}, {'3', "def"},
+        {'4', "ghi"}, {'5', "jkl"},
+        {'6', "mno"}, {'7', "pqrs"},
+        {'8', "tuv"}, {'9', "wxyz"}
+    };
+
+    *returnSize = 0;
+    int len = strlen(digits);
+    if (len == 0) return NULL;
+
+    char* sets[4];   // Max 4 digits as per constraints
+    int setLens[4];
+    for (int i = 0; i < len; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (phoneMap[j].digit == digits[i]) {
+                sets[i] = phoneMap[j].letters;
+                setLens[i] = strlen(phoneMap[j].letters);
+                break;
             }
         }
     }
-    for (int i=0; i<25; i++)
-    {
-        char rep = malloc(5*sizeof(char));
-        rep
+
+    int total = 1;
+    for (int i = 0; i < len; i++) total *= setLens[i];
+
+    char** result = malloc(total * sizeof(char*));
+    for (int i = 0; i < total; i++) {
+        result[i] = malloc(len + 1);
+        int idx = i;
+        for (int j = 0; j < len; j++) {
+            int letterIdx = idx % setLens[j];
+            result[i][j] = sets[j][letterIdx];
+            idx /= setLens[j];
+        }
+        result[i][len] = '\0';
     }
+
+    *returnSize = total;
+    return result;
 }
+
