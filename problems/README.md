@@ -608,3 +608,58 @@ Constraints:
 
 * 0 <= digits.length <= 4
 * digits[i] is a digit in the range ['2', '9'].
+
+## 18. 4Sum
+
+Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+
+0 <= a, b, c, d < n
+a, b, c, and d are distinct.
+nums[a] + nums[b] + nums[c] + nums[d] == target
+You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,0,-1,0,-2,2], target = 0
+Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+Example 2:
+
+Input: nums = [2,2,2,2,2], target = 8
+Output: [[2,2,2,2]]
+ 
+
+Constraints:
+
+1 <= nums.length <= 200
+-109 <= nums[i] <= 109
+-109 <= target <= 109
+
+## 19. Remove Nth Node from End of List 
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+Example 2:
+
+Input: head = [1], n = 1
+Output: []
+Example 3:
+
+Input: head = [1,2], n = 1
+Output: [1]
+ 
+
+Constraints:
+
+The number of nodes in the list is sz.
+1 <= sz <= 30
+0 <= Node.val <= 100
+1 <= n <= sz
