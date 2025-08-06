@@ -16,6 +16,10 @@ bool isValid(char* s) {
             stack[c]='0';
             nr++;
         }
+        else if (c==0 && s[i]==']') //testcase 7
+        {
+            return false;
+        }
         else if (s[i]==']' && stack[--c]=='[' && c>-1)
         {
             stack[c]='0';
