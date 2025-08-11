@@ -1,11 +1,15 @@
 bool isValid(char* s) {
-    char stack[10];
+    char stack[10000];
     int f=0;
     int c=0;
     int nl=0;
     int nr=0;
     for (int i=0; s[i]!='\0'; i++)
     {
+        if (c==0 && (s[i]==')' || s[i]=='}' || s[i]==']'))      
+        {
+            return false;
+        }
         if (s[i]==')' && stack[--c]=='(')
         {
             stack[c]='0';
@@ -15,10 +19,6 @@ bool isValid(char* s) {
         {
             stack[c]='0';
             nr++;
-        }
-        else if (c==0 && s[i]==']') //testcase 7
-        {
-            return false;
         }
         else if (s[i]==']' && stack[--c]=='[' && c>-1)
         {
