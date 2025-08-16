@@ -1,11 +1,5 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
- //runs, but case 1 and 2 wrong output 
+#include <stdlib.h>
+
 struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
     struct ListNode* l = list1;
     struct ListNode* r = list2;
