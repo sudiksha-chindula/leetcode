@@ -1,40 +1,34 @@
 bool isAnagram(char* s, char* t) {
-    int found=0;
+    int comparechars(const void* a, const void* b)
+{
+        char val1 = *(char*)a;
+        char val2 = *(char*)b;
+        if(val1<val2)
+        {
+            return -1;
+        }
+        if (val1>val2)
+        {
+            return 1;
+        }
+        return 0;
+}
+bool isAnagram(char* s, char* t) {
+    
     if(strlen(s)!=strlen(t))
     {
         return false;
     }
-    if (strlen(s)==1 && strlen(t)==1)
-    {
-        if (s[0]!=t[0])
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    int i=0;
-    int j=0;
-    
+    qsort(s, strlen(s), sizeof(char), comparechars);
+    qsort(t, strlen(t), sizeof(char), comparechars);
     for (int i=0; i<strlen(s); i++)
     {
-        int found=0;
-        for (int j=0; j<strlen(t); j++)
-        {
-            if(s[i]==t[j])
-            {
-                //printf("found %c %c", s[i], t[j]);
-                found=1;
-                break;
-            }
-        }
-        if(found==0)
+        if (s[i]!=t[i])
         {
             return false;
         }
     }
-    
-return true;
+    return true;
+}
+
 }
