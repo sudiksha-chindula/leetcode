@@ -5,7 +5,7 @@
 
 int compareInts(const void *a, const void *b)
 {
-    //dereference/cast pointers to integer values
+if    //dereference/cast pointers to integer values
     int val1 = *(int*)a;
     int val2 = *(int*)b;
     //relation - val1 before val2, val2 after val1, equality
