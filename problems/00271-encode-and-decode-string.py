@@ -13,21 +13,18 @@ class Solution:
 
 
     def decode(self, s: str) -> List[str]:
-        decoded=[]
         if len(s)==0:
             return []
-        else:
-            index=0
-            for i in s:
-                currentword = ""
-                if i=='#':
-                    if s[index-1]==0:
-                        currentword="#"
-                    else:
-                        lenparse=int(s[index-1])
-                        currentword+=s[index+1:(index+lenparse)+1]
-                    decoded.append(currentword)
-                index+=1
+        decoded=[]
+        index=0
+        while index<len(s):
+            j=index
+            while s[j]!='#':
+                j+=1
+            length=int(s[index:j])
+            decoded.append(s[j+1 : j+1+length])
+            index=j+length+1
         return decoded
+
 
 
