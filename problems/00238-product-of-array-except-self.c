@@ -3,34 +3,19 @@
  */
 int* productExceptSelf(int* nums, int numsSize, int* returnSize) {
     *returnSize = numsSize;
-    int* left_product = calloc(numsSize, sizeof(int));
-    int* right_product = calloc(numsSize, sizeof(int));
     int* product = calloc(numsSize, sizeof(int));
 
+    int left_running_product=1;
     for (int i=0; i<numsSize; i++)
     {
-        int ri = numsSize-1-i;
-        //printf("%d", i);
-        if (i==0)
-        {
-            left_product[i+1]=nums[i];
-            right_product[ri-1]=nums[ri];
-            left_product[i]=1;
-            right_product[ri]=1;
-        }
-        else if (i!=numsSize-1)
-        {
-            left_product[i+1]=left_product[i]*nums[i];
-            right_product[ri-1]=right_product[ri]*nums[ri];
-            //product[i+1]=product[i];
-            //printf("%d\n", product[i]);
-        }
-        
+       product[i]=left_running_product;
+       left_running_product*=nums[i];
     }
-    for (int i=0; i<numsSize; i++)
-    {
-        product[i]=left_product[i]*right_product[i];
-        printf("%d", product[i]);
+    int right_running_product=1;
+    for (int j=numsSize-1; j>=0; j--)
+    {   
+        product[j]*=right_running_product;
+        right_running_product*=nums[j];
     }
     return product;
 }
