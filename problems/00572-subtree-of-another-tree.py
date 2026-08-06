@@ -6,28 +6,16 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        def isEqual(root, subRoot):
-            if root and subRoot and root.val==subRoot.val:
-                l=isEqual(root.left, subRoot.left)
-                r=isEqual(root.right, subRoot.right)
-                return l and r
-            elif root and subRoot and root.val!=subRoot.val:
-                return False
-            elif not root and subRoot:
-                return False
-            elif not subRoot and root:
-                return False
+        def serialise(root):
+            if not root:
+                return ",#"
             else:
-                return True
-        if root and not subRoot:
-            return True
-        elif not root and subRoot:
-            return False
-        elif not root and not subRoot:
+                return f',{root.val}'+serialise(root.left)+serialise(root.right)
+        r=serialise(root)
+        print(r)
+        sr=serialise(subRoot)
+        print(sr)
+        if sr in r:
             return True
         else:
-            if isEqual(root, subRoot):
-                return True
-            else:
-                return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
-            
+            return False  
